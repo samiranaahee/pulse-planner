@@ -101,5 +101,11 @@ export default function CalendarView() {
     }
     return days;
   };
+  // Get tasks for specific date
+  const getTasksForDate = (date) => {
+    const dateString = date.toISOString().split('T')[0];
+    return tasks.filter(task => task.date === dateString)
+      .sort((a, b) => a.startTime.localeCompare(b.startTime));
+  };
 
      
